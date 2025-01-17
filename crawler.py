@@ -2,6 +2,9 @@
 import requests 
 from bs4 import BeautifulSoup
 from parser_html import Parser_html
+from urllib.parse import urlparse
+import Levenshtein
+import re
 
 class Crawler():
     def __init__(self):
@@ -30,10 +33,10 @@ class Crawler():
 
                 # Find unvisited the extracted URLs
                 for url in urls:
-                    if url not in visited_set:
-                        visited_set.add(url)
-                        url_queue.put(url)
-
+                    if re.match("https:", url) != None:
+                        if url not in visited_set:
+                            visited_set.add(url)
+                            url_queue.put((self.compare_domains(seed_url, url), url))
                 return True
             
         except Exception as e:
@@ -43,3 +46,11 @@ class Crawler():
             print(f'Error: Failed to fetch {seed_url}') 
         return False
 
+    def compare_domains(self, url1, url2):
+    # Extract the netloc (domain) from each URL
+        domain1 = urlparse(url1).netloc
+        print (domain1)
+    
+        domain2 = urlparse(url2).netloc
+        print (domain2)
+        return Levenshtein.distance(domain1, domain2)

@@ -1,7 +1,12 @@
 from collections import Counter
 import re
+from nltk.corpus import stopwords
+
 
 class Parser_html():
+    def __init__(self):
+        self.stop_words = set(stopwords.words('english'))
+    
     def extract_keywords(self, soup, num_keywords=10):
 
         # Extract relevant content: headings and paragraphs
@@ -15,8 +20,7 @@ class Parser_html():
 
         # Tokenize words and remove common stopwords
         words = content.lower().split()
-        stopwords = set(['the', 'and', 'is', 'in', 'to', 'of', 'a', 'on', 'for', 'it', 'with', 'at', 'as', 'by', 'an', 'this', 'that', 'from', 'or', 'be', 'you', 'your', 'I', 'me'])
-        filtered_words = [word for word in words if word not in stopwords]
+        filtered_words = [word for word in words if word not in self.stop_words]
 
         # Count word frequencies
         word_counts = Counter(filtered_words)

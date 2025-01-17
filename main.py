@@ -1,5 +1,5 @@
 from crawler import Crawler
-import queue
+from queue import PriorityQueue
 import csv
 import matplotlib.pyplot as plt
 from datetime import datetime
@@ -8,18 +8,18 @@ from datetime import datetime
 class Main():
 
     def __init__(self) -> None:
-        self.crawler_queue = queue.Queue()
+        self.crawler_queue = PriorityQueue()
         self.visited_set = set()
-        self.seed_url = 'https://gatech.edu/' 
+        self.seed_url = 'https://youtube.com' 
         self.crawler = Crawler()
         self.data = []
         self.num_crawled = []
         self.queue_size= []
         self.time_y = []
 
-    def search_engine(self):
+    def search(self):
         #Placing starting url in queue
-        self.crawler_queue.put(self.seed_url)
+        self.crawler_queue.put((1, self.seed_url))
         #Creating csv file to save subjects of websites
         with open("titles.csv", mode="w", newline="") as file:
             writer = csv.writer(file)
@@ -28,7 +28,7 @@ class Main():
             num_visited_urls = 0
             while (num_visited_urls < 1000 and self.crawler_queue.empty() == False):
                 successful_url = self.crawler.simple_crawler(
-                    self.crawler_queue.get(),
+                    self.crawler_queue.get()[1],
                     self.visited_set, 
                     self.crawler_queue,
                     self.data
@@ -55,6 +55,9 @@ class Main():
             plt.legend()
             #show plot
             plt.show()
+
+    
+
 if __name__ == "__main__":
     main = Main()
-    main.search_engine()
+    main.search()
