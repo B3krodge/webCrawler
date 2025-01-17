@@ -24,11 +24,12 @@ webCrawler/ │ ├── main.py # Main program to run the crawler ├── cr
    cd webCrawler
    ```
 2. **Create and activate a virtual environment**:
-   python3 -m venv venv
+   ````python3 -m venv venv
    source venv/bin/activate # For macOS/Linux
-   .\venv\Scripts\activate # For Windows
+   .\venv\Scripts\activate # For Windows```
+   ````
 3. **Install the dependencies**:
-   pip install -r requirements.txt
+   `pip install -r requirements.txt`
 
 ## Usage
 
@@ -36,7 +37,7 @@ webCrawler/ │ ├── main.py # Main program to run the crawler ├── cr
    In main.py, the seed URL is defined in the Main class. You can modify the self.seed_url variable to start the crawl from a different URL. By default, it is set to 'https://youtube.com'.
 
 2. **Run the crawler**:
-   python main.py
+   `python main.py`
 3. **Results**:
    The crawler will output the following:
    - titles.csv: A CSV file containing the URL, title, and keywords of the crawled websites.
@@ -44,22 +45,23 @@ webCrawler/ │ ├── main.py # Main program to run the crawler ├── cr
 
 ## Code Explanation
 
-**crawler.py**
-The Crawler class handles the crawling process. It:
+1. **crawler.py**
+   The Crawler class handles the crawling process. It:
 
 - Sends HTTP requests to URLs.
 - Extracts HTML content and parses it using BeautifulSoup.
 - Extracts the title and keywords from the HTML content using Parser_html.
 - Finds and processes additional URLs to crawl, comparing the domains with Levenshtein distance for prioritization.
-  **main.py**
-  The Main class manages the overall crawling operation, including:
+
+2.  **main.py**
+    The Main class manages the overall crawling operation, including:
 
 - Initializing the seed URL and the priority queue.
 - Writing the crawled data to a CSV file.
 - Plotting the crawling statistics using Matplotlib.
 
-**parser_html.py**
-The Parser_html class extracts keywords from HTML content using nltk stopwords and Counter to calculate word frequencies.
+3. **parser_html.py**
+   The Parser_html class extracts keywords from HTML content using nltk stopwords and Counter to calculate word frequencies.
 
 ## Requirements
 
@@ -71,7 +73,7 @@ The following Python packages are required to run the project:
 - matplotlib: For plotting crawling statistics.
 - python-Levenshtein: For calculating the Levenshtein distance between domains.
 - You can install them via the requirements.txt file:
-  pip install -r requirements.txt
+  `pip install -r requirements.txt`
 
 ## Dependencies
 
