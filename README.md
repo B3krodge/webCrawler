@@ -38,7 +38,7 @@ This is a simple **web crawler** that fetches up to 1,000 websites and extracts 
    The crawler will output the following:
    - titles.csv: A CSV file containing the URL, title, and keywords of the crawled websites.
    - Matplotlib Plot: A graph showing the crawling progress with the number of crawled URLs and the current queue size over time.
-     ![Alt text](crawling_stats./.png)
+     ![Alt text](crawling_stats.png)
 
 ## Code Explanation
 
