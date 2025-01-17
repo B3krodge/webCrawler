@@ -49,8 +49,5 @@ class Crawler():
     def compare_domains(self, url1, url2):
     # Extract the netloc (domain) from each URL
         domain1 = urlparse(url1).netloc
-        print (domain1)
-    
         domain2 = urlparse(url2).netloc
-        print (domain2)
         return Levenshtein.distance(domain1, domain2)

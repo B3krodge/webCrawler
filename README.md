@@ -12,15 +12,11 @@ This is a simple **web crawler** that fetches up to 1,000 websites and extracts 
 - **Visualization**: The crawler plots the number of crawled URLs and the size of the URL queue over time using `matplotlib`.
 - **CSV Export**: The crawler exports the results (URLs, titles, and keywords) to a CSV file for later analysis.
 
-## Project Structure
-
-webCrawler/ │ ├── main.py # Main program to run the crawler ├── crawler.py # Crawler logic for fetching URLs and extracting data ├── parser_html.py # Handles extraction of keywords from HTML content ├── requirements.txt # List of dependencies for the project ├── titles.csv # CSV file containing crawled data (URL, Title, Keywords)
-
 ## Installation
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/webCrawler.git
+   git clone https://github.com/B3krodge/webCrawler.git
    cd webCrawler
    ```
 2. **Create and activate a virtual environment**:
@@ -42,6 +38,7 @@ webCrawler/ │ ├── main.py # Main program to run the crawler ├── cr
    The crawler will output the following:
    - titles.csv: A CSV file containing the URL, title, and keywords of the crawled websites.
    - Matplotlib Plot: A graph showing the crawling progress with the number of crawled URLs and the current queue size over time.
+     `![Alt text](crawling_stats./.png)`
 
 ## Code Explanation
 

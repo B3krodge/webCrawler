@@ -10,7 +10,7 @@ class Main():
     def __init__(self) -> None:
         self.crawler_queue = PriorityQueue()
         self.visited_set = set()
-        self.seed_url = 'https://youtube.com' 
+        self.seed_url = 'https://www.gatech.edu' 
         self.crawler = Crawler()
         self.data = []
         self.num_crawled = []
@@ -53,10 +53,10 @@ class Main():
             plt.ylabel("Number of URLs")
             plt.title("Crawled vs. Queued URLs")
             plt.legend()
-            #show plot
+            # Save the plot to a file (e.g., PNG format)
+            plt.savefig("crawling_stats.png", format="png")
+            # Show the plot (optional)
             plt.show()
-
-    
 
 if __name__ == "__main__":
     main = Main()
