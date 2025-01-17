@@ -30,7 +30,7 @@ This is a simple **web crawler** that fetches up to 1,000 websites and extracts 
 ## Usage
 
 1. **Configure the seed URL**:
-   In main.py, the seed URL is defined in the Main class. You can modify the self.seed_url variable to start the crawl from a different URL. By default, it is set to 'https://youtube.com'.
+   In main.py, the seed URL is defined in the Main class. You can modify the self.seed_url variable to start the crawl from a different URL. By default, it is set to 'https://www.gatech.edu'.
 
 2. **Run the crawler**:
    `python main.py`
